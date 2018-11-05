@@ -20,7 +20,7 @@
     "domainadminPassword": {
       "value": "Ansible@1234"
     },
-    "safemodedminUsername": {
+    "safemodeadminUsername": {
       "value": "saumil123"
     },
     "safemodeadminPassword": {
