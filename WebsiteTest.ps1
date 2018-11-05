@@ -4,7 +4,7 @@ Configuration WebsiteTest {
    ( 
 		[Parameter(Mandatory)][string] $DomainName,
 	    [Parameter(Mandatory)][string] $MachineName,
-		[Parameter(Mandatory)][System.Management.Automation.PSCredential] $AdminCredentials,
+		[Parameter(Mandatory)][System.Management.Automation.PSCredential] $AdminCredentials
     ) 
 
 
