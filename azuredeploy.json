@@ -49,18 +49,18 @@
         }
       }
     },
-    "variables": {
-      "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
-      "nicName": "myVMNic",
-      "addressPrefix": "10.0.0.0/16",
-      "subnetName": "Subnet",
-      "subnetPrefix": "10.0.0.0/24",
-      "publicIPAddressName": "myPublicIP",
-      "vmName": "SimpleWinVM",
-      "virtualNetworkName": "MyVNET",
-      "vmExtensionName": "DSCExt",
-      "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
-    },
+  "variables": {
+    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
+    "nicName": "myVMNic",
+    "addressPrefix": "10.0.0.0/16",
+    "subnetName": "Subnet",
+    "subnetPrefix": "10.0.0.0/24",
+    "publicIPAddressName": "myPublicIP",
+    "vmName": "SimpleWinVM",
+    "virtualNetworkName": "MyVNET",
+    "vmExtensionName": "Microsoft.Powershell.DSC",
+    "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
+  },
     "resources": [
       {
         "type": "Microsoft.Storage/storageAccounts",
@@ -185,7 +185,7 @@
       },
       {
         "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "[concat(variables('vmName'),'/Microsoft.Powershell.DSC')]",
+        "name": "[concat(variables('vmName'),'/', variables('vmExtensionName'))]",
         "apiVersion": "2018-04-01",
         "location": "[parameters('location')]",
         "dependsOn": [
