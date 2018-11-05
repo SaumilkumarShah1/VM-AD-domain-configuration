@@ -14,41 +14,65 @@
         "description": "Password for the Virtual Machine."
       }
     },
-      "domainName": {
-        "type": "string",
-        "metadata": {
-          "description": "The FQDN of the Active Directory Domain to be created"
-        }
-      },
-      "dnsLabelPrefix": {
-        "type": "string",
-        "metadata": {
-          "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
-        }
-      },
-      "windowsOSVersion": {
-        "type": "string",
-        "defaultValue": "2016-Datacenter",
-        "allowedValues": [
-          "2008-R2-SP1",
-          "2012-Datacenter",
-          "2012-R2-Datacenter",
-          "2016-Nano-Server",
-          "2016-Datacenter-with-Containers",
-          "2016-Datacenter"
-        ],
-        "metadata": {
-          "description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version."
-        }
-      },
-      "location": {
-        "type": "string",
-        "defaultValue": "[resourceGroup().location]",
-        "metadata": {
-          "description": "Location for all resources."
-        }
+    "domainadminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "Username for the Domain Machine."
       }
     },
+    "domainadminPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Password for the Domain Machine."
+      }
+    },
+    "safemodeadminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "Username for the safemode Machine."
+      }
+    },
+    "safemodeadminPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Password for the saafemode Machine."
+      }
+    },
+    "domainName": {
+      "type": "string",
+      "metadata": {
+        "description": "The FQDN of the Active Directory Domain to be created"
+      }
+    },
+    "dnsLabelPrefix": {
+      "type": "string",
+      "metadata": {
+        "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+      }
+    },
+    "windowsOSVersion": {
+      "type": "string",
+      "defaultValue": "2016-Datacenter",
+      "allowedValues": [
+        "2008-R2-SP1",
+        "2012-Datacenter",
+        "2012-R2-Datacenter",
+        "2016-Nano-Server",
+        "2016-Datacenter-with-Containers",
+        "2016-Datacenter"
+      ],
+      "metadata": {
+        "description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
   "variables": {
     "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
     "nicName": "myVMNic",
@@ -214,6 +238,14 @@
               "AdminCredentials": {
                 "userName": "[parameters('adminUsername')]",
                 "password": "[parameters('adminPassword')]"
+              },
+              "DomainCredentials": {
+                "userName": "[parameters('domainadminUsername')]",
+                "password": "[parameters('domainadminPassword')]"
+              },
+              "SafeModeCredentials": {
+                "userName": "[parameters('safemodeadminUsername')]",
+                "password": "[parameters('safemodeadminPassword')]"
               }
             }
           }

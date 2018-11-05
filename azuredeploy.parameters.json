@@ -13,6 +13,18 @@
     },
     "domainName": {
       "value": "mydomain.globant"
+    },
+    "domainadminUsername": {
+      "value": "saumil"
+    },
+    "domainadminPassword": {
+      "value": "Ansible@1234"
+    },
+    "safemodedminUsername": {
+      "value": "saumil123"
+    },
+    "safemodeadminPassword": {
+      "value": "Ansible@1234"
     }
   }
 }
