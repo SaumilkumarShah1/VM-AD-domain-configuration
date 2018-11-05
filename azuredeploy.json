@@ -197,22 +197,27 @@
           "typeHandlerVersion": "2.76",
           "autoUpgradeMinorVersion": true,
           "settings": {
-            "ModulesUrl": "https://raw.githubusercontent.com/saumil1991/VM-AD-domain-configuration/master/MyDSC1.zip",
-            "ConfigurationFunction": "WebsiteTest.ps1\\WebsiteTest",
-            "Properties": {
+            "configuration": {
+              "url": "https://raw.githubusercontent.com/saumil1991/VM-AD-domain-configuration/master/MyDSC1.zip",
+              "script": "WebsiteTest.ps1",
+              "function": "WebsiteTest"
+            },
+            "configurationArguments": {
               "MachineName": "[variables('vmName')]",
-              "DomainName": "[parameters('domainName')]",
+              "DomainName": "[parameters('domainName')]"
+            }
+
+          },
+
+          "protectedSettings": {
+            "configurationArguments": {
               "AdminCredentials": {
                 "userName": "[parameters('adminUsername')]",
-                "password": "PrivateSettingsRef:adminPassword"
+                "password": "[parameters('adminPassword')]"
               }
             }
-          },
-          "protectedSettings": {
-            "items": {
-              "adminPassword": "[parameters('adminPassword')]"
-            }
           }
+
         }
       }
   ],
