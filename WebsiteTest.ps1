@@ -97,7 +97,6 @@ Configuration WebsiteTest {
         Ensure                        = "Present"
         DependsOn                     = "[xWaitForADDomain]DomainWait"
     }
-
    
   }
 
