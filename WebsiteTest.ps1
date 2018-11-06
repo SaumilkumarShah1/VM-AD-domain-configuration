@@ -29,16 +29,6 @@ Configuration WebsiteTest {
       Name = “Web-Server”
     }
 
-
-	# Configure LCM to allow Windows to automatically reboot if needed. Note: NOT recommended for production!
-    LocalConfigurationManager
-    {
-        # Set this to $true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default (recommended for PRODUCTION servers) value is $false.
-        RebootNodeIfNeeded = $true
-        # The thumbprint of a certificate used to secure credentials passed in a configuration.
-        CertificateId = $node.Thumbprint
-    }
-
     # Install Windows Feature "Active Directory Domain Services".
     WindowsFeature ADDSInstall
     {
