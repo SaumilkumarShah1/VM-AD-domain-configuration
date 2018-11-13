@@ -222,7 +222,7 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
           "configuration": {
-            "url": "https://raw.githubusercontent.com/saumil1991/VM-AD-domain-configuration/master/MyDSC4.zip",
+            "url": "https://raw.githubusercontent.com/saumil1991/VM-AD-domain-configuration/master/MyDSC5.zip",
             "script": "WebsiteTest.ps1",
             "function": "WebsiteTest"
           },
